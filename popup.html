@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Deepfake Detector</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔍Deepfake Detector</h1>
+            <p class="subtitle">Select faces manually on screen for analysis</p>
+        </header>
+
+        <!-- Face Selection Section -->
+        <div class="section">
+            <h3>✂️ Face Selection</h3>
+            <div class="selection-info">
+                <p>Click "Start Selection" to select faces directly on the current screen</p>
+                <p class="hint">You'll be able to click and drag to select face areas with precision</p>
+            </div>
+            <div class="button-container">
+                <button id="startSelectionBtn" class="btn btn-primary">
+                    🎯 Start Selection
+                </button>
+                <button id="stopSelectionBtn" class="btn btn-secondary" disabled>
+                    ⏹️ Stop Selection
+                </button>
+            </div>
+        </div>
+
+        <!-- Status Section -->
+        <div class="section">
+            <div class="status-section">
+                <div id="status" class="status">Ready to start face selection</div>
+            </div>
+        </div>
+
+        <!-- Selected Face Display Section -->
+        <div id="selectedFaceSection" class="section hidden">
+            <h3>📷 Selected Face</h3>
+            <div class="face-display">
+                <canvas id="faceCanvas" width="300" height="300"></canvas>
+            </div>
+            <div class="face-info">
+                <div class="info-item">
+                    <div class="info-label">Selection Size</div>
+                    <div id="selectionSize" class="info-value">-</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-label">Detection Method</div>
+                    <div id="selectionMethod" class="info-value">-</div>
+                </div>
+            </div>
+            <div class="button-container">
+                <button id="analyzeBtn" class="btn btn-primary" disabled>
+                    🤖 Analyze for Deepfakes
+                </button>
+            </div>
+        </div>
+
+        <!-- Analysis Status -->
+        <div id="analysisStatus" class="hidden">
+            <div class="status-icon">⏳</div>
+            <div class="status-text">Analyzing...</div>
+        </div>
+
+        <!-- Results Section -->
+        <div id="results" class="hidden">
+            <!-- Results will be populated dynamically -->
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
